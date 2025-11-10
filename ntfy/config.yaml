@@ -1,0 +1,22 @@
+name: "ntfy.sh Server"
+version: "1.0.0"
+slug: "ntfy"
+description: "Self-hosted ntfy.sh notification server"
+startup: services
+init: false
+
+arch:
+  - aarch64
+  - amd64
+  - armv7
+
+options:
+  base_url: "http://localhost"
+  auth_default: "read-write"
+
+ports:
+  8080/tcp: 2586
+
+schema:
+  base_url: str?
+  auth_default: match(read-write|read-only|write-only|deny-all)
